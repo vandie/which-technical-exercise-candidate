@@ -1,6 +1,7 @@
-// NOTE: we have only provided this as a skeleton & you are free remove it if you want.
-export function runWith(_input: any) {
-  return { status: 'error' };
-}
+import fs from 'fs';
+import { runRobot } from './robot-wrapper';
 
-runWith(undefined);
+// If running this application directly from the commandline, expect a piped file to
+// meet task requirements
+const robotOtuput = runRobot(fs.readFileSync(0).toString());
+console.log(JSON.stringify(robotOtuput, null, 2));

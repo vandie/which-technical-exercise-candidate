@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import { describe, expect, test } from '@jest/globals';
-import { runWith } from './index';
+import { runRobot } from './robot-wrapper';
 
 function exampleTest(name: string) {
   const loadJson = (p: string) => JSON.parse(readFileSync(`${__dirname}/../examples/${name}/${p}`, 'utf8'));
@@ -9,7 +9,10 @@ function exampleTest(name: string) {
     const input = loadJson('input.json');
     const expected = loadJson('expected.json');
 
-    expect(runWith(input)).toBe(expected);
+    // The test by default uses .toBe which can sometimes be funny with objects
+    // as such I've replaced with .toEqual which does a deep comparison.
+    // The example tests are otherwise unmodified
+    expect(runRobot(input)).toEqual(expected);
   });
 }
 
