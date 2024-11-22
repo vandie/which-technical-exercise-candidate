@@ -29,6 +29,7 @@ export class Vec2 {
    * @param input
    * @returns Either a Vec2 or null depending on if it's possible to create a Vec2 from the given input
    */
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   static tryFrom(input: any): Vec2 | null {
     if (!input || typeof input.x != 'number' || typeof input.y != 'number') return null;
     return new Vec2(input.x, input.y);

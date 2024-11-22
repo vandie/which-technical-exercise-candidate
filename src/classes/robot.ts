@@ -30,7 +30,7 @@ export class Robot {
     // Push the instruction to our history
     this.path.push(instruction);
     // Check if this is a valid instruction, if not set the state to error
-    if (!(<any>Object).values(Instruction).includes(instruction)) {
+    if (!(Object.values(Instruction) as string[]).includes(instruction)) {
       this.state = RobotState.Error;
       return;
     }

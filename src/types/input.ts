@@ -32,6 +32,7 @@ export type RobotInput = {
  * @param input An object to test
  * @returns {boolean} A boolean indicating if the input is a valid Robot Input
  */
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export function validateAndNormaliseRobotInput(input: any): input is RobotInput {
   if (!input || !input.arena) return false;
 
